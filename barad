@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 ابرقهرمان</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #000, #ff0000, #ffff00);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-container, .content, .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+        }
+
+        .form-container input, .form-container button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background: #ffff00;
+            color: #000;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .character {
+            margin: 20px auto;
+            padding: 15px;
+            background: #000;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+        }
+
+        .character h3 {
+            color: #ffff00;
+        }
+
+        footer {
+            background: #ff0000;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- فرم ورود -->
+    <div class="form-container">
+        <h1>ورود به سایت</h1>
+        <p>برای ورود اطلاعات زیر را وارد کنید:</p>
+        <input type="number" id="age" placeholder="سن خود را وارد کنید">
+        <input type="text" id="email" placeholder="ایمیل خود را وارد کنید (فقط @gmail.com)">
+        <button onclick="checkLogin()">ورود</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+
+    <!-- محتوای سایت -->
+    <div class="content">
+        <div class="container">
+            <h2>به دنیای 5 ابرقهرمان خوش آمدید</h2>
+            <p>شخصیت‌ها و داستان‌های ثبت‌شده:</p>
+        </div>
+
+        <!-- اطلاعات هر شخصیت -->
+        <div class="character">
+            <h3>امین</h3>
+            <p>امین رهبر تیم 5 ابرقهرمان است. او با هوش بالا و تصمیم‌گیری‌های استراتژیک خود، گروه را در مسیر موفقیت هدایت می‌کند.</p>
+        </div>
+
+        <div class="character">
+            <h3>سینا</h3>
+            <p>سینا مغز متفکر تیم است. او متخصص ساخت ابزارها و تجهیزات تکنولوژیکی برای مبارزه با دشمنان است.</p>
+        </div>
+
+        <div class="character">
+            <h3>سارا</h3>
+            <p>سارا یک مبارز قدرتمند و نینجای بی‌همتاست. او با مهارت‌های رزمی خود در خط مقدم مبارزات قرار می‌گیرد.</p>
+        </div>
+
+        <div class="character">
+            <h3>محمد</h3>
+            <p>محمد یک مهندس رباتیک نابغه است. او ربات‌های پیشرفته‌ای می‌سازد که در نبردهای سخت به تیم کمک می‌کنند.</p>
+        </div>
+
+        <!-- ارتباط با ما -->
+        <div class="container">
+            <h2>ارتباط با ما</h2>
+            <ul style="text-align: left;">
+                <li>ایمیل: <a href="mailto:baradbolhasani6@gmail.com" style="color: #ffff00;">baradbolhasani6@gmail.com</a></li>
+                <li>شماره تماس: ۰۹۰۵۵۷۳۰۷۹۶</li>
+                <li>ارتباط در دیسکورد: <a href="https://discord.gg/NXFbJp3P" target="_blank" style="color: #ffff00;">لینک دیسکورد</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        طراحی شده از تیم B&B
+    </footer>
+
+    <script>
+        function checkLogin() {
+            const age = document.getElementById('age').value;
+            const email = document.getElementById('email').value;
+            const error = document.getElementById('error');
+
+            // بررسی سن
+            if (age < 7 || age > 90) {
+                error.t
+extContent = "سن شما باید بین ۷ تا ۹۰ سال باشد.";
+                return;
+            }
+
+            // بررسی اینکه ایمیل شامل @gmail.com باشد
+            if (!email.includes("@gmail.com")) {
+                error.textContent = "ایمیل وارد شده باید شامل '@gmail.com' باشد.";
+                return;
+            }
+
+            // اگر همه چیز درست بود، نمایش محتوای سایت
+            error.textContent = "";
+            document.querySelector('.form-container').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
